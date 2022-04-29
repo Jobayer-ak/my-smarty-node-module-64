@@ -73,11 +73,22 @@ app.get("/users", (req, res) => {
   }
 });
 
+// dynamic url
 app.get("/user/:id", (req, res) => {
   console.log(req.params);
   const id = parseInt(req.params.id);
   const user = users.find((u) => u.id === id);
   res.send(user);
+});
+
+// example using array
+app.get("/fruits", (req, res) => {
+  res.send(["mango", "apple", "orange"]);
+});
+
+// get method
+app.get("/fruits/mango/fazle", (req, res) => {
+  res.send("sour sour fazle flavor");
 });
 
 // post method
